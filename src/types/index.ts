@@ -27,6 +27,7 @@ export interface DiagnosisResult {
   description: string;
   challenge: string;
   nextStep: string;
+  lineBeforeCta: string;
   scores: AxisScores;
   emoji: string;
   color: string;
