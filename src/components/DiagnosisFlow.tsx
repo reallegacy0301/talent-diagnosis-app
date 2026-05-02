@@ -51,30 +51,22 @@ export default function DiagnosisFlow() {
 
   return (
     <main className="min-h-dvh flex flex-col px-5 pt-8 pb-10 relative overflow-hidden">
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,76,0.05) 0%, transparent 60%)",
-        }}
-      />
-
       <div className="w-full max-w-md mx-auto flex flex-col flex-1">
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
-            <div
-              className="text-xs font-body tracking-[0.2em]"
-              style={{ color: "var(--gold-primary)" }}
-            >
+            <div className="text-xs font-body tracking-[0.2em] text-yellow-600">
               DIAGNOSIS
             </div>
-            <div className="text-xs font-body" style={{ color: "var(--text-muted)" }}>
+            <div className="text-xs font-body text-gray-500">
               {currentIndex + 1} / {questions.length}
             </div>
           </div>
 
-          <div className="w-full h-px" style={{ background: "var(--border-subtle)" }}>
-            <div className="progress-bar" style={{ width: ${progress}% }} />
+          <div className="w-full h-px bg-gray-200">
+            <div
+              className="h-px bg-yellow-600 transition-all"
+              style={{ width: `${progress}%` }}
+            />
           </div>
         </div>
 
@@ -89,8 +81,7 @@ export default function DiagnosisFlow() {
         {currentIndex > 0 && (
           <button
             onClick={handleBack}
-            className="mt-6 text-xs font-body tracking-wide self-start"
-            style={{ color: "var(--text-muted)" }}
+            className="mt-6 text-xs font-body tracking-wide self-start text-gray-500"
           >
             ← 前の質問に戻る
           </button>
