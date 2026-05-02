@@ -25,7 +25,7 @@ npm run dev
 `src/components/ResultCard.tsx` の以下の箇所を変更してください：
 
 ```typescript
-const LINE_URL = "https://lin.ee/XXXXXXX"; // ← 公式LINEのURLに変更
+const LINE_URL = "https://lin.ee/XXgX9O7"; // 
 ```
 
 ## 診断タイプ
