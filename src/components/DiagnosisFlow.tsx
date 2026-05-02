@@ -16,7 +16,7 @@ export default function DiagnosisFlow() {
   const [result, setResult] = useState<DiagnosisResult | null>(null);
 
   const currentQuestion = questions[currentIndex];
-  const progress = ((currentIndex) / questions.length) * 100;
+  const progress = (currentIndex / questions.length) * 100;
 
   const handleAnswer = (value: number) => {
     const newAnswers = { ...answers, [currentQuestion.id]: value };
@@ -25,7 +25,6 @@ export default function DiagnosisFlow() {
     if (currentIndex < questions.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      // Calculate result
       setPhase("loading");
       setTimeout(() => {
         const scores = calculateScores(newAnswers);
@@ -52,7 +51,6 @@ export default function DiagnosisFlow() {
 
   return (
     <main className="min-h-dvh flex flex-col px-5 pt-8 pb-10 relative overflow-hidden">
-      {/* Background glow */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -62,10 +60,12 @@ export default function DiagnosisFlow() {
       />
 
       <div className="w-full max-w-md mx-auto flex flex-col flex-1">
-        {/* Header */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
-            <div className="text-xs font-body tracking-[0.2em]" style={{ color: "var(--gold-primary)" }}>
+            <div
+              className="text-xs font-body tracking-[0.2em]"
+              style={{ color: "var(--gold-primary)" }}
+            >
               DIAGNOSIS
             </div>
             <div className="text-xs font-body" style={{ color: "var(--text-muted)" }}>
@@ -73,16 +73,11 @@ export default function DiagnosisFlow() {
             </div>
           </div>
 
-          {/* Progress bar */}
           <div className="w-full h-px" style={{ background: "var(--border-subtle)" }}>
-            <div
-              className="progress-bar"
-              style={{ width: `${progress}%` }}
-            />
+            <div className="progress-bar" style={{ width: ${progress}% }} />
           </div>
         </div>
 
-        {/* Question */}
         <QuestionCard
           key={currentIndex}
           question={currentQuestion}
@@ -91,7 +86,6 @@ export default function DiagnosisFlow() {
           onAnswer={handleAnswer}
         />
 
-        {/* Back button */}
         {currentIndex > 0 && (
           <button
             onClick={handleBack}
